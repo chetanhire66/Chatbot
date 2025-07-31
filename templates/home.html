@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+    }
+    .right{
+        min-height: 100px;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        margin: 10px;
+        padding: 10px;
+        border: 2px solid black;
+    }
+    .left{
+        margin: 10px;
+        padding: 10px;
+        width: 70%;
+        border: 2px solid black;
+    }
+    #form{
+        padding-top: 100px;
+        min-height: 100px;
+        min-width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    form textarea{
+        height: 100px;
+        width: 50%;
+        text-align: center;
+        font-size: 15px;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 20px;
+        border: 2px solid black;
+    }
+    form input{
+        height: 50px;
+        width: 200px;
+        border-radius: 15px;
+        font-size: 16px;
+    }
+    form input:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+    h1{
+        text-align: center;
+    }
+
+    /* 📱 Media Query for smaller screens (mobile/tablet) */
+    @media (max-width: 768px){
+        body{
+            flex-direction: column;
+            align-items: center;
+        }
+        .right,.left{
+            width: 70%;
+        }
+        form textarea{
+            width: 80%;
+        }
+    }
+</style>
+<body>
+    <div class="right">
+        <h1>About This Chatbot</h1><br>
+        <span>Welcome to my very first AI Chatbot Project!</span>
+        <span>I have created this chatbot using Google Gemini AI.</span>
+        <span>It can answer questions, chat with you, and help you learn new things.</span><br>
+        <h1>Project Highlights</h1><br>
+        <span>🚀 My first AI project built with Python, HTML, CSS and Flask.</span>
+        <span>🤖 Uses Gemini Free API Key, which has limited usage.</span>
+        <span>💬 Designed for simple conversation and fun learning.</span>
+        <span>🧪 This is a testing and experimental project, not for professional use.</span><br>
+        <h1>Important Notes</h1><br>
+        <span>Responses might be short or slow due to free API limits.</span>
+        <span>Chatbot may not always give perfect answers.</span>
+        <span>I am learning AI and improving this project step by step.</span>
+
+    </div>
+    <div class="left">
+        <form action="/" id="form" method="POST">
+            <textarea name="text" placeholder="Ask me anything!" id=""></textarea>
+            <input type="submit">
+        </form>
+        
+        <h1>
+            {% for xx in history %}
+                <ul>
+                    <li>{{ xx.history }}</li>
+                </ul>
+            {% endfor %}
+        </h1>
+    </div>
+</body>
+
+</html>
