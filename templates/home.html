@@ -66,7 +66,15 @@
     h1{
         text-align: center;
     }
-
+    #delete{
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+    }
+    #delete:hover{
+        background-color: black;
+        color: white;
+    }
     /* 📱 Media Query for smaller screens (mobile/tablet) */
     @media (max-width: 768px){
         body{
@@ -107,7 +115,7 @@
         <h1>
             {% for xx in history %}
                 <ul>
-                    <li>{{ xx.history }}</li>
+                    <li>{{ xx.history }} <a href="/delete/{{xx.id}}"><button name="delete" id="delete">delete</button></a></li>
                 </ul>
             {% endfor %}
         </h1>

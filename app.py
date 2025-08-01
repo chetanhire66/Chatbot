@@ -27,6 +27,14 @@ def home():
     
     all_data = Sql.query.all()
     return render_template('home.html', history=all_data)
+@app.route('/delete/<int:id>')
+def delete(id):
+    delete = Sql.query.get_or_404(id)
+    db.session.delete(delete)
+    db.session.commit()
+    return redirect('/')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
